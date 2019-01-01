@@ -1,0 +1,24 @@
+{
+  "name": "send-me-ebook-highlights",
+  "version": "1.0.0",
+  "description": "Google Script that sends you daily/weekly/monthly highlights or clippings from your ebooks by e-mail.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gas-lib": "^2.0.2",
+    "jshint": "^2.9.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jceelen@github.com/jceelen/send-me-ebook-highlights.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jceelen/send-me-ebook-highlights/issues"
+  },
+  "homepage": "https://github.com/jceelen/send-me-ebook-highlights#readme"
+}
