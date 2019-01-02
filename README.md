@@ -15,13 +15,11 @@ Google Script that sends you daily/weekly/monthly highlights or clippings from y
 
 ## Wanted features ##
 * on install: save spreadsheet ID
-* Add date to subject
-* only include highlights
-* Check if 1 is possible with the random numbers
+* Add date to subject (to make it unique)
 * Auto import from CSV file
 * Count how many times highlights are sent
 * Send quotes through telegram/whatsapp/messenger
-* Publish as an add-on 
+* Publish as a public add-on
 
 ## Notes
 * This script is developend using clasp, [documentation is available here](https://developers.google.com/apps-script/guides/clasp)

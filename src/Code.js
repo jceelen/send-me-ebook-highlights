@@ -27,7 +27,7 @@ function sendHighlight(config, sheet) {
   };
 
   // generate random number within range of the data
-  var randomRow = getRandomInteger(1, data.highlights.length);
+  var randomRow = getRandomInteger(0, data.highlights.length);
   var highlights = data.highlights;
   var randomHighlight = highlights[randomRow];
 
@@ -75,13 +75,36 @@ function getHighlights(sheet) {
   var startColumn = 1; // Starting at first column
   var numColumns = sheet.getLastColumn(); // Last column
   var dataRange = sheet.getRange(startRow, startColumn, numRows, numColumns);
+  var items = dataRange.getValues();
+  var highlights = [];
 
-  var highlights = dataRange.getValues();
+  if (items.length > 0) {
+    highlights = filterHighlights(items);
+  } else {
+    console.info('Found no items in sheet.');
+    return;
+  }
+  
   console.log({
     'message': 'Returned ' + highlights.length + ' highlights from ' + sheet.getName() + '.',
     'jsonPayload': highlights
   });
 
+  return highlights;
+}
+
+function filterHighlights(items) {
+  var highlights = [];
+  for (var i = 0; i < items.length; i++) {
+    if (items[i][0] == 'highlight') {
+      console.log({
+        'message': 'Found a highlight on index ' + i + ' of ' + items.length + ' items.',
+        'items': items[i]
+      });
+      highlights.push(items[i]);
+    }
+  }
+  console.log('Filtered ' + items.length + ' items and found ' + highlights.length + ' highlights.');
   return highlights;
 }
 
