@@ -14,6 +14,8 @@ Google Script that sends you daily/weekly/monthly highlights or clippings from y
 * Sends a random highlight by e-mail
 
 ## Wanted features ##
+* on install: save spreadsheet ID
+* Add date to subject
 * only include highlights
 * Check if 1 is possible with the random numbers
 * Auto import from CSV file

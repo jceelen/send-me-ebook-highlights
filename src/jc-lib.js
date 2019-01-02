@@ -23,7 +23,15 @@ function setEnvConfig(mode) {
  * Returns the sheet defined in the config
  */
 function getSheet(config, header) {
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    var spreadsheet;
+    if(SpreadsheetApp.getActiveSpreadsheet()){    
+        spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    } else if(SPREADSHEET_ID) {
+            spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+    } else {
+        console.warn('Spreadsheet id not found, please edit Conf.js.');
+        return;
+    }
     var sheet = getOrCreateSheet(spreadsheet, config.sheetName);
     removeUnusedSheet(spreadsheet, 'Sheet1');
     removeUnusedSheet(spreadsheet, 'Blad1');
