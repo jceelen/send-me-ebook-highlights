@@ -71,7 +71,7 @@ function ensureHeader(config, sheet, header) {
         // Compare the header from the sheet with the config
         if (sheetHeaderString != headerString) {
             sheet.clear();
-            insertData(sheet, [header], 1, 1, config);
+            insertData(sheet, [header], 1, 1);
             console.warn({
                 'message': 'Found incorrect header, cleared sheet and updated header.',
                 'header': header
@@ -140,10 +140,10 @@ function retrieveLastDate(sheet) {
 /**
  * Inserts a two dimentional array into a sheet and triggers markup
  */
-function insertData(sheet, data, row, column) {
+function insertData(sheet, data, startRow, startColumn) {
     var numRows = data.length;
     var numColums = data[0].length;
-    var range = sheet.getRange(row, column, numRows, numColums);
+    var range = sheet.getRange(startRow, startColumn, numRows, numColums);
     range.setValues(data);
     console.info('Inserted %s data records into %s', data.length, sheet.getName());
 }
@@ -278,4 +278,38 @@ function getRandomInteger(min, max) {
     var random = Math.round(Math.random() * (max - min) + min);
     console.log('Returned the random number: %s (within the range of %s and %s)', random, min, max);
     return random;
+}
+
+/**
+ * Imports csv file, parse it and returns is as an array
+ */
+function importCsvFromGoogleDrive(csvId) {
+    // Get the file
+    var file = DriveApp.getFileById(csvId);
+    console.log('Got file %s', file.getName());
+    
+    // Clean the data
+    var csv = file.getBlob().getDataAsString();
+    console.log({'message': 'Pulled CSV data from file.', 'csv': csv});
+    var cleanCsv = csv.replace(/\s+/gm, ' ')
+                        .replace(/(highlight|annotation|bookmark)/gm, '\n$&')
+                        .replace(/^\s*/gm, '')
+                        .replace(/[ \t]+$/gm, '');
+    console.log({'message': 'Cleaned CSV data.', 'cleanCsv': cleanCsv});
+
+    // Parse the CSV
+    var array = Utilities.parseCsv(cleanCsv);
+  
+    console.log({
+        'message': 'Returned 2D array with CSV data with ' + array.length + ' records.',
+        'array': array
+    });
+    return array;
+  }
+
+/**
+ * Writes the type of a variable to the log
+ */
+function whichType(variable) {
+    console.log('The type of the variable: ' + typeof variable);
 }

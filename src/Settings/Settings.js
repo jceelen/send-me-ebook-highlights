@@ -3,17 +3,19 @@ var ENV_SETTINGS = {
   test: {
     envName: 'test',
     sheetName: 'Highlights[T]',
-    frozenRows: 0,
+    frozenRows: 1,
     frozenColumns: 0,
     sendEmail: true,
+    importCsv: true,
     markupdata : true
   },
   prod: {
     envName: 'prod',
     sheetName: 'Highlights',
-    frozenRows: 0,
+    frozenRows: 1,
     frozenColumns: 0,
     sendEmail: true,
+    importCsv: false,
     markupdata : true
   }
 };
@@ -41,17 +43,18 @@ var SETTINGS = {
       },
       4: {
         position: 4,
-        name: 'Date&Time 1',
+        name: 'Date Created',
         align: 'left',
       },
       5: {
         position: 5,
-        name: 'Date&Time 2',
+        name: 'Date Modified',
         align: 'left',
       },
       6: {
         position: 6,
         name: '',
+        size: 20,
         align: 'left',
       },
       7: {
