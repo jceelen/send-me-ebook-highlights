@@ -119,21 +119,31 @@ function freezeRowsColumns(sheet, wantedRows, wantedColumns) {
 /**
  * Returns the date of the last entry in unixTime.
  */
-function retrieveLastDate(sheet) {
+function retrieveLastDate(sheet, dateCol) {
     var lastRow = sheet.getLastRow();
     console.log('Found the last row in the sheet: ' + lastRow);
 
     var unixTime = 631152000; // date of 1-1-1990, used if there is no activity available
     if (lastRow > 1) {
-        var dateCell = sheet.getRange(lastRow, 1);
+        var dateCell = sheet.getRange(lastRow, dateCol);
+        //var dateString = dateCell.getValue();
         var dateString = dateCell.getValue();
         console.log('Retrieved the datestring from the lastrow: ' + dateString);
-
-        var date = new Date((dateString || '').replace(/-/g, '/').replace(/[TZ]/g, ' '));
-        unixTime = date / 1000;
+        unixTime = getUnixTime(dateString);
     }
+    return unixTime;
+}
 
-    console.log('Returned the datestring converted to unixtime: ' + unixTime);
+/**
+ * Returns the unixtime from a datestring
+ */
+function getUnixTime(dateString){
+    // Remove miliseconds
+    dateString = dateString.split('.')[0];
+    // Replace and remove unwanted characters
+    var date = new Date((dateString || '').replace(/-/g, '/').replace(/[TZ]/g, ' '));
+    var unixTime = date / 1000;
+    //console.log('Returned the datestring converted to unixtime: ' + unixTime);
     return unixTime;
 }
 
