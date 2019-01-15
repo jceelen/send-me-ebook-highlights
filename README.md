@@ -16,9 +16,11 @@ Google Script that sends you daily/weekly/monthly highlights or clippings from y
 * Sends a random highlight by e-mail
 * Sends annotations to a second e-mailadres
 
-## Wanted features #
+## Wanted features/Todo ##
 * Improve format of annotation e-mail for readability
-* Import every hour
+* Add creation/modified date to e-mails
+* Center hightlight e-mail 
+* Import every half hour
 * Configure time send highlights
 * Configure frequency of highlights
 * Updates changed items (is kobo-export updating notes?)

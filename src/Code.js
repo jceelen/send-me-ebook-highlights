@@ -206,24 +206,27 @@ function importNewKoboItems(config, sheet) {
   }
 }
 
-/**
- * Imports annotations, highlights and bookmarks from kobo-export.csv
- */
-function importKoboExport(config, sheet) {
-  if (config.importCsv) {
-    console.info('Importing CSV...');
-    var startRow = 2; // Skipping the header
-    var startColumn = 1; // Starting at first column
-    data = importCsvFromGoogleDrive(CSV_ID);
-    insertData(sheet, data, startRow, startColumn);
-    console.info('Finished importing CSV...');
-  }
-}
 
 /**
  * Calls main() in testmode
  */
 function testMain() {
   var mode = 'test';
+  main(mode);
+}
+
+/**
+ * Calls main() in importmode
+ */
+function importProd() {
+  var mode = 'importProd';
+  main(mode);
+}
+
+/**
+ * Calls main() in importmode
+ */
+function importTest() {
+  var mode = 'importTest';
   main(mode);
 }

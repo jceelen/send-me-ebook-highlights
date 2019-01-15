@@ -2,11 +2,12 @@
  * Sets the global configuration based on the environment
  */
 function setEnvConfig(mode) {
-    if (mode == 'test') {
-        console.warn('Running in testmode.');
-        environment = 'test';
-    } else {
+
+    if (mode == null) {
         environment = 'prod';
+    } else {
+        console.warn('Running in '+mode+'-mode.');
+        environment = mode;
     }
     var config = ENV_SETTINGS[environment];
     for (var i in SETTINGS) {

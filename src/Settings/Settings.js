@@ -9,11 +9,29 @@ var ENV_SETTINGS = {
     importCsv: true,
     markupdata: true
   },
+  importTest: {
+    envName: 'importTest',
+    sheetName: 'Highlights[T]',
+    sendHighlight: false,
+    sendHighlightMail: false,
+    sendAnnotationMail: false,
+    importCsv: true,
+    markupdata: true
+  },
   prod: {
     envName: 'prod',
     sheetName: 'Highlights',
     sendHighlight: true,
     sendHighlightMail: true,
+    sendAnnotationMail: true,
+    importCsv: true,
+    markupdata: true
+  },
+  importProd: {
+    envName: 'importProd',
+    sheetName: 'Highlights',
+    sendHighlight: false,
+    sendHighlightMail: false,
     sendAnnotationMail: true,
     importCsv: true,
     markupdata: true
@@ -66,7 +84,7 @@ var SETTINGS = {
       wrap: 'CLIP'
     },
     8: {
-      position: 7,
+      position: 8,
       name: 'Annotation send to',
       align: 'left',
     },
