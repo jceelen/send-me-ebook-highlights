@@ -5,10 +5,10 @@
  * Configuration: update conf.js
  * Call main() with a timer to run the script or test() for testing purposes.
  */
-function main(mode) {
+function main(runMode) {
   console.info('Started main().');
   // Get config based on environment
-  var ENV_CONFIG = setEnvConfig(mode);
+  var ENV_CONFIG = setEnvConfig(runMode);
   // Get the header from the config
   var header = getHeader(ENV_CONFIG.columns);
   // Check status of sheet (header etc)
@@ -208,25 +208,33 @@ function importNewKoboItems(config, sheet) {
 
 
 /**
+ * Calls main() in prodmode
+ */
+function mainProd() {
+  var runMode = 'prod';
+  main(runMode);
+}
+
+/**
  * Calls main() in testmode
  */
-function testMain() {
-  var mode = 'test';
-  main(mode);
+function mainTest() {
+  var runMode = 'test';
+  main(runMode);
 }
 
 /**
  * Calls main() in importmode
  */
 function importProd() {
-  var mode = 'importProd';
-  main(mode);
+  var runMode = 'importProd';
+  main(runMode);
 }
 
 /**
  * Calls main() in importmode
  */
 function importTest() {
-  var mode = 'importTest';
-  main(mode);
+  var runMode = 'importTest';
+  main(runMode);
 }

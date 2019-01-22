@@ -1,20 +1,21 @@
 /**
  * Sets the global configuration based on the environment
  */
-function setEnvConfig(mode) {
-
-    if (mode == null) {
-        environment = 'prod';
+function setEnvConfig(runMode) {
+    console.log('var(runMode) is Type: %s, and value is %s', whichType(runMode), runMode);
+    if (runMode == undefined) {
+        environmentName = 'prod';
+        console.info('Running in '+runMode+'-mode, environment is: '+environmentName+'.');
     } else {
-        console.warn('Running in '+mode+'-mode.');
-        environment = mode;
+        environmentName = runMode;
+        console.warn('Running in '+runMode+'-mode, environment is: '+environmentName+'.');
     }
-    var config = ENV_SETTINGS[environment];
+    var config = ENV_SETTINGS[environmentName];
     for (var i in SETTINGS) {
         config[i] = SETTINGS[i];
     }
     console.log({
-        'message': 'Loaded configuration settings for environment: ' + environment + '.',
+        'message': 'Loaded configuration settings for environment: ' + environmentName + '.',
         'ENV_CONFIG': config
     });
     return config;
@@ -322,5 +323,7 @@ function importCsvFromGoogleDrive(csvId) {
  * Writes the type of a variable to the log
  */
 function whichType(variable) {
-    console.log('The type of the variable: ' + typeof variable);
+    var variableType = typeof variable;
+    console.log('The type of the variable: ' + variableType);
+    return variableType;
 }

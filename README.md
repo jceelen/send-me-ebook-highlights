@@ -12,15 +12,16 @@ Google Script that sends you daily/weekly/monthly highlights or clippings from y
 - Spreadsheet with imported CSV file in first sheet
 
 ## Features ##
-* Imports CSV from Google Drive
+* Imports CSV from Google Drive every hour
 * Sends a random highlight by e-mail
 * Sends annotations to a second e-mailadres
 
 ## Wanted features/Todo ##
+* refactor setEnvConfig()
 * Improve format of annotation e-mail for readability
 * Add creation/modified date to e-mails
 * Center hightlight e-mail 
-* Import every half hour
+* Notes in Pocket of instapaper?
 * Configure time send highlights
 * Configure frequency of highlights
 * Updates changed items (is kobo-export updating notes?)
