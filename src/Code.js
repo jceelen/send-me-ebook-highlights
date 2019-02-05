@@ -61,14 +61,15 @@ function sendHighlightMail(config, highlight) {
     var book = highlight[1];
     var author = highlight[2];
     var highlightText = highlight[6];
-    var message = '<body style="background:#FFD371; color:#045E68; font-family:Georgia, serif; font-size:16px" alink="#045E68" link="#045E68" bgcolor="#FFD371" text="#045E68">' +
-      '<table style="background:#FFD371; color:#045E68; font-family:Georgia, serif; font-size:16px" bgcolor="#FFD371" id="bgtable" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%"><tr><td>' +
-      '<!-- container 600px -->' +
-      '<table border="0" cellpadding="25" cellspacing="0" class="container" width="600"><tr><td style="background:#FFD371; color:#045E68; font-family:Georgia, serif; font-size:16px" align="left" valign="top">' +
-      '<p ><strong>' + book + '</strong> by ' + author + '</p>' +
-      '<p><i>' + highlightText + '</i></p>' +
+    var message = '<body style="background:#eeeeee; bgcolor="#eeeeee"; color:#045E68; font-family:Verdana, Geneva, sans-serif; font-size:16px;" bgcolor="#eeeeee" text="#045E68" alink="#045E68" link="#045E68">' +
+      '<table style="background:#eeeeee;" bgcolor="#eeeeee"; id="bgtable" align="center" border="0" cellpadding="20" cellspacing="0" height="100%" width="100%"><tr><td align="center">' +
+      '<!-- container 700px -->' +
+      '<table style="background:#FFD371; color:#045E68;" bgcolor="#FFD371" border="0" cellpadding="40" cellspacing="0" class="container" width="500">' +
+      '<tr><td style="font-family:Georgia, serif; font-size:20px; color:#045E68;" align="left">' +
+      '<p>&#8220;' + highlightText + '&#8221;</p>' +
+      '<p style="font-size:14px; font-family:Verdana, Geneva, sans-serif; align="center">' + author + '. <i>' + book + '</i>.</p>' +
       '</td></tr></table>' +
-      '<!-- container 600px -->' +
+      '<!-- container 700px -->' +
       '</td></tr></body>';
 
     console.log('Message for e-mail prepared: ' + message);

@@ -17,6 +17,7 @@ Google Script that sends you daily/weekly/monthly highlights or clippings from y
 * Sends annotations to a second e-mailadres
 
 ## Wanted features/Todo ##
+* make font bigger
 * refactor setEnvConfig()
 * Improve format of annotation e-mail for readability
 * Add creation/modified date to e-mails
